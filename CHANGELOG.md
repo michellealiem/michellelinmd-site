@@ -1,6 +1,53 @@
 # Portfolio Website Changelog
 
-## Session: December 26, 2025
+## Session: December 26, 2025 (Afternoon)
+
+### Deployment to Production 🎉
+- **GitHub repo created:** `michellealiem/michellelinmd-site`
+- **Deployed to Netlify** — auto-deploys on push to main
+- **Custom domain configured:** `michellelinmd.com` via Cloudflare DNS
+- **SSL certificate:** Provisioning via Let's Encrypt (awaiting DNS propagation)
+
+### Publications — Full Paper Lists Added
+- Populated all 72 peer-reviewed publications across 6 themed cards
+- Removed 7th theme (Clinical Research & Case Reports) — moved relevant papers to Digital Scholarship
+- Removed paper count from section header ("72 peer-reviewed publications" → "Peer-reviewed publications organized by theme")
+- Updated PublicationCard: shows 2 papers by default, expands to full list with max-height scroll
+
+### Animations Added
+1. **Scroll-triggered animations** — sections fade/blur in as user scrolls (`inView={true}` on BlurFade)
+2. **Card hover lifts** — `hover:scale-[1.02]` on Work, Projects, Exploring, Publication cards
+3. **Smooth link underlines** — animated underline effect on publication paper links (`.link-underline` CSS class)
+4. **Animated gradient background** — subtle cyan-blue gradient shift behind hero section (15s animation cycle)
+
+### Mobile Responsiveness Fixes
+- Hero name: `text-3xl` → `text-2xl` on mobile (prevents line wrap on iPhone 12 Pro)
+- Work Experience grid: `grid-cols-2` → `grid-cols-1 sm:grid-cols-2` (single column on phones)
+
+### Visual Hierarchy
+- Section headers reduced from `sm:text-5xl` → `sm:text-4xl` (hero name stays dominant)
+- Removed trailing periods from section subheaders
+
+### Contact Form
+- Embedded Netlify Forms contact form (Name, Email, Message)
+- Created `public/form.html` for Netlify form detection (Next.js App Router workaround)
+- Honeypot spam protection (`bot-field`)
+
+### Social Links Updated
+- LinkedIn: `michellelinmd` → `michelle-lin-md`
+- X/Twitter: `MichelleLinMD` → `M_Lin`
+- Instagram: Added new icon and link to `MichelleLinMD`
+- Email nav icon: Now scrolls to `#contact` section instead of `mailto:`
+
+### Section Header Renamed
+- "AI Research" → "AI Lab" (better fits operational tools + research projects)
+
+### Bug Fixes
+- Fixed TypeScript error in `blur-fade.tsx` (`margin` type assertion for Netlify build)
+
+---
+
+## Session: December 26, 2025 (Morning)
 
 ### Hero Section Refinements
 - **Avatar size:** Increased from `size-28` (112px) to `size-32` (128px) — more presence without crowding headline
