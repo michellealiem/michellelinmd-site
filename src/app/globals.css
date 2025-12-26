@@ -2,6 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .link-underline {
+    @apply relative;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-[1px] bg-current transition-all duration-300 ease-out;
+  }
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+  
+  .animated-gradient {
+    background: linear-gradient(
+      -45deg,
+      hsl(var(--background)),
+      hsl(200, 50%, 95%),
+      hsl(190, 50%, 93%),
+      hsl(var(--background))
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+  
+  .dark .animated-gradient {
+    background: linear-gradient(
+      -45deg,
+      hsl(var(--background)),
+      hsl(200, 40%, 10%),
+      hsl(190, 40%, 8%),
+      hsl(var(--background))
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
 @layer base {
     :root {
       --background: 0 0% 100%;

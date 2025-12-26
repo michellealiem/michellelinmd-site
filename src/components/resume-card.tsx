@@ -45,18 +45,18 @@ export const ResumeCard = ({
       onClick={handleClick}
     >
       <Card className="flex">
-        <div className="flex-none">
-          <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
+        <div className="flex-none mr-4 flex items-center">
+          <Avatar className="size-12 bg-muted">
             <AvatarImage
               src={logoUrl}
               alt={altText}
-              className="object-contain"
+              className="object-contain p-1"
             />
-            <AvatarFallback>{altText[0]}</AvatarFallback>
+            <AvatarFallback className="text-xs">{altText[0]}</AvatarFallback>
           </Avatar>
         </div>
-        <div className="flex-grow ml-4 items-center flex-col group">
-          <CardHeader>
+        <div className="flex-grow items-center flex-col group">
+          <CardHeader className="p-0">
             <div className="flex items-center justify-between gap-x-2 text-base">
               <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-sm">
                 {title}

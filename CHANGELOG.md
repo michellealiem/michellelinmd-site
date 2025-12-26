@@ -1,0 +1,171 @@
+# Portfolio Website Changelog
+
+## Session: December 26, 2025
+
+### Hero Section Refinements
+- **Avatar size:** Increased from `size-28` (112px) to `size-32` (128px) — more presence without crowding headline
+- **Headline font:** Added **Bricolage Grotesque** as display font for "Dr. Michelle Lin" — distinctive, creative personality
+  - Tested: Instrument Sans (refined), DM Sans (warm), Plus Jakarta Sans (geometric), Outfit (clean)
+  - Chose Bricolage for "approachable innovator" vibe that matches "AI tinkerer always"
+- **"AI tinkerer always" text:** Reduced from `text-xl` to `text-lg` — better visual hierarchy, width closer to "Educator by day"
+- **Spacing:** Tightened `space-y-1.5` to `space-y-1` between headline and taglines
+
+### Technical
+- Added `font-display` Tailwind utility class mapped to `--font-display` CSS variable
+- Bricolage Grotesque loaded via `next/font/google` with weights 400-800
+
+---
+
+## Session: December 25, 2025 (Late Night)
+
+### Layout Overhaul
+- **Removed Education section** — credentials are assumed for a UCSF Professor; CV material not portfolio material
+- **Reordered sections:** Hero → About → Work Experience → Projects → Currently Exploring → Publications → Skills → Contact
+- **Work Experience redesigned** — changed from stacked cards to compact 2x2 grid
+  - Tested 3 options: A (2x2 grid), B (inline logo bar), C (collapsible accordion)
+  - Chose Option A for balance of info density and visual appeal
+  - Reordered card content: Company → Dates → Title (dates now apply to tenure, not rank)
+
+### UCSF Entry Corrected
+- Start date: 2004 → **2001** (when Michelle joined as Clinical Instructor)
+- Description updated: "Faculty since 2001. Professor since 2015."
+- Avoids misleading implication of being Professor for 24 years
+
+### Project Logos Completed
+- **DIL logo.jpg** — Digital Innovation Lab card
+- **Dynamed logo.jpg** — DynaMed Editor card  
+- **aliemu logo cropped.jpg** — ALiEMU card
+- All 6 project cards now have proper logos
+
+### Bug Fix
+- Corrected previous session's date from "December 26" to "December 25" (UTC vs PST issue)
+- Added user preference for Pacific timezone to prevent future date errors
+
+### Still TODO
+- [ ] Update avatar image (currently placeholder)
+- [ ] Update Contact section text
+- [ ] Populate full paper lists in expandable publication cards
+- [ ] Review mobile responsiveness and dark mode
+- [ ] Deploy to production
+
+---
+
+## Session: December 25, 2025 (Evening)
+
+### Projects Section (6 cards)
+- **ALiEM** — flagship blog/education platform with ALiEM-medium-horizontal.jpg logo
+- **#PostitPearls** — hand-drawn bedside teaching doodles (NEW)
+- **Tricks of the Trade** — book with 50 clinical tricks
+- **Digital Innovation Lab** — UCSF EM department lab director role (NEW)
+- **DynaMed Editor** — EBSCO Health point-of-care editor (NEW)
+- **ALiEMU** — free LMS with 75k+ course completions (NEW)
+
+### Publications Section (replaced Hackathons)
+- Created 6 themed publication cards with expandable functionality
+- Themes: Digital Scholarship, COVID-19 & Virtual Education, Wellness & Burnout, Virtual Communities, ALiEM AIR Series, Medical Education Scholarship
+- Featured papers verified with correct PubMed links
+- Added PublicationCard component with click-to-expand and chevron icon
+
+### Currently Exploring Section (NEW)
+AI projects in healthcare and academic medicine:
+1. **Faculty Promotion Letter Automation** — n8n workflow, In Use (green badge)
+2. **PAIA: Executive AI Assistant** — Claude Agent SDK with memory/journaling/CRM, In Use
+3. **Base Hospital Radio Call Analysis** — IRB approved (blue badge), In Progress (yellow)
+4. **California Poison Center Call Analysis** — IRB approved, In Progress
+5. **SF EMS Medical Record QI Analysis** — IRB approved, In Progress
+6. **ALiEMU Analytics via Natural Language** — LearnDash REST API integration, Planned (gray badge)
+
+### Skills Section Updates
+- Added: Book Author, Bedside Teaching, #PostitPearls Creator, The Lin Sessions (EM:RAP)
+- Now 14 skills total
+
+### UI Improvements
+- Fixed "Featured Work" section header and subtitle
+- Publication cards with hover effects and expandable state
+- Status badges: green (In Use), yellow (In Progress), gray (Planned), blue (IRB Approved)
+- Responsive grids: 2-col for projects, 3-col for publications and exploring
+
+### Logos Added
+- Work: UCSF.svg, ALiEM logo.png, Crowdrx.png, Lindblad logo.png
+- Education: Harbor UCLA logo.png, Stanford.png
+- Projects: ALiEM-medium-horizontal.jpg, Post it pearls landing website page michellelinmd.com.jpg
+
+### Still TODO
+- [ ] Add dynamed.png and aliemu.png logos
+- [ ] Update avatar image (currently placeholder)
+- [ ] Update Contact section text
+- [ ] Populate full paper lists in expandable publication cards
+- [ ] Review mobile responsiveness and dark mode
+- [ ] Deploy to production
+
+---
+
+## Session: December 25, 2025
+
+### Template Selection
+- Chose **Dillion Verma portfolio template** (MIT license, Next.js + shadcn + Magic UI)
+- Rejected Once UI (CC BY-NC license, $128/yr for commercial) and techwithanirudh (TurboRepo complexity)
+
+### Installation
+- Cloned to `~/Library/CloudStorage/Dropbox/paia_personal_assistant/michellelinmd-site/`
+- Using pnpm package manager
+- Dev server: `pnpm dev` at localhost:3000
+
+### Hero Section
+- **Headline:** Changed to "Dr. Michelle Lin" (removed "Hi, I'm" and "MD")
+- **Tagline:** Three-line staggered animation:
+  - Emergency physician by night.
+  - Educator by day.
+  - *AI tinkerer always.* (italic, muted gray)
+- **Sparkle icon:** Blue (#0099FF) SVG with pulse animation, sized to match text
+- **Photo:** Replaced with Michelle's headshot (resized to 400x400, 106kb)
+
+### About Section
+- Split into two paragraphs for readability
+- Content: UCSF Professor, Digital Innovation Lab Director, ZSFG ED, ALiEM founder, 2M annual views, AI/tech passion
+
+### Work Experience
+- UCSF — Professor of Emergency Medicine (2004-Present)
+- ALiEM — Founder & Editor-in-Chief (2008-Present)
+- CrowdRx — Event Physician, Chase Center and Moscone Convention Center (2019-Present)
+- Lindblad Expeditions / National Geographic — Ship Physician (2018-Present)
+
+### Education
+- Harbor-UCLA Medical Center — Residency, Emergency Medicine (1998-2001)
+- Stanford University — MD, School of Medicine (1993-1998)
+- Stanford University — BS, Biology (1989-1993)
+
+### Skills
+- Emergency Medicine, Medical Education, Digital Health, AI in Healthcare, Curriculum Development, Health Professions Education, Academic Writing, Public Speaking, Leadership, n8n Automation, Workflow Design
+
+### Social Links
+- LinkedIn: linkedin.com/in/michellelinmd/
+- X/Twitter: x.com/MichelleLinMD
+- Email: michelle.lin@ucsf.edu
+
+### UI/UX Improvements
+1. Tagline third line styled differently (italic + muted) for emphasis
+2. Removed placeholder avatar circles from Work/Education sections
+3. Increased section spacing (space-y-10 → space-y-14)
+4. Added pulse animation to sparkle icon
+
+---
+
+## Still TODO
+- [ ] Add logos for Work Experience (UCSF, ALiEM, CrowdRx, Lindblad)
+- [ ] Add logos for Education (Harbor-UCLA, Stanford)
+- [ ] Update Projects section with ALiEM, publications, speaking
+- [ ] Remove or repurpose Hackathons section
+- [ ] Add CV page (`/src/app/cv/page.tsx`)
+- [ ] Add blog posts (MDX in `/content/`)
+- [ ] Deploy to Vercel/Netlify
+- [ ] Point Cloudflare DNS to new host
+
+---
+
+## Key Files
+- **Config:** `src/data/resume.tsx` — all content lives here
+- **Hero page:** `src/app/page.tsx` — layout and components
+- **Resume card:** `src/components/resume-card.tsx` — work/education display
+- **Avatar:** `public/me.png`
+- **Blog content:** `content/` (MDX files)
