@@ -185,3 +185,25 @@ code[data-line-numbers-max-digits="2"] > [data-line]::before {
 code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
+
+/* Blog article links */
+.prose a {
+  color: #14B8A6;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+}
+
+.prose a:hover {
+  color: #0D9488;
+  text-shadow: 0 0 8px rgba(20, 184, 166, 0.5);
+}
+
+.dark .prose a {
+  color: #2DD4BF;
+}
+
+.dark .prose a:hover {
+  color: #5EEAD4;
+  text-shadow: 0 0 8px rgba(45, 212, 191, 0.6);
+}
