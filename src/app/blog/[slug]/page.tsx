@@ -2,6 +2,7 @@ import { getBlogPosts, getPost } from "@/data/blog";
 import { DATA } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
@@ -98,6 +99,18 @@ export default async function Blog({
           </p>
         </Suspense>
       </div>
+      {post.metadata.image && (
+        <div className="mb-8 max-w-[650px]">
+          <Image
+            src={post.metadata.image}
+            alt={post.metadata.title}
+            width={650}
+            height={366}
+            className="rounded-lg w-full h-auto"
+            priority
+          />
+        </div>
+      )}
       <article
         className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.source }}
