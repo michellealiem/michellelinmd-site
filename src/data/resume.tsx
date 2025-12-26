@@ -38,19 +38,25 @@ export const DATA = {
     social: {
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/michellelinmd/",
+        url: "https://www.linkedin.com/in/michelle-lin-md/",
         icon: Icons.linkedin,
         navbar: true,
       },
       X: {
         name: "X",
-        url: "https://x.com/MichelleLinMD",
+        url: "https://x.com/M_Lin",
         icon: Icons.x,
         navbar: true,
       },
+      Instagram: {
+        name: "Instagram",
+        url: "https://www.instagram.com/MichelleLinMD/",
+        icon: Icons.instagram,
+        navbar: true,
+      },
       email: {
-        name: "Send Email",
-        url: "mailto:michelle.lin@ucsf.edu",
+        name: "Contact",
+        url: "/#contact",
         icon: Icons.email,
         navbar: true,
       },
