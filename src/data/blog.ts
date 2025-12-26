@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import { visit } from "unist-util-visit";
 
 type Metadata = {
   title: string;
@@ -17,6 +18,22 @@ type Metadata = {
 
 function getMDXFiles(dir: string) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+}
+
+// Custom rehype plugin to open external links in new tabs
+function rehypeExternalLinks() {
+  return (tree: any) => {
+    visit(tree, "element", (node: any) => {
+      if (node.tagName === "a" && node.properties?.href) {
+        const href = node.properties.href;
+        // Check if it's an external link (starts with http:// or https://)
+        if (href.startsWith("http://") || href.startsWith("https://")) {
+          node.properties.target = "_blank";
+          node.properties.rel = "noopener noreferrer";
+        }
+      }
+    });
+  };
 }
 
 export async function markdownToHTML(markdown: string) {
@@ -32,6 +49,7 @@ export async function markdownToHTML(markdown: string) {
       },
       keepBackground: false,
     })
+    .use(rehypeExternalLinks)
     .use(rehypeStringify)
     .process(markdown);
 
