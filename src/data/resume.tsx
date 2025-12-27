@@ -84,6 +84,7 @@ export const DATA = {
       location: "Remote",
       title: "Founder & Editor-in-Chief",
       logoUrl: "/ALiEM logo.png",
+      logoDarkUrl: undefined,
       start: "2008",
       end: "Present",
       description:
@@ -96,6 +97,7 @@ export const DATA = {
       location: "San Francisco, CA",
       title: "Event Physician, Chase Center and Moscone Convention Center",
       logoUrl: "/Crowdrx.png",
+      logoDarkUrl: undefined,
       start: "2019",
       end: "Present",
       description:
@@ -108,6 +110,7 @@ export const DATA = {
       location: "Worldwide",
       title: "Ship Physician",
       logoUrl: "/Lindblad logo.png",
+      logoDarkUrl: undefined,
       start: "2018",
       end: "Present",
       description:
