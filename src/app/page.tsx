@@ -130,8 +130,15 @@ export default async function Page() {
                       <AvatarImage
                         src={work.logoUrl}
                         alt={work.company}
-                        className="object-contain p-1"
+                        className={`object-contain p-1 ${work.logoDarkUrl ? 'dark:hidden' : ''}`}
                       />
+                      {work.logoDarkUrl && (
+                        <AvatarImage
+                          src={work.logoDarkUrl}
+                          alt={work.company}
+                          className="object-contain p-1 hidden dark:block"
+                        />
+                      )}
                       <AvatarFallback className="text-xs">{work.company[0]}</AvatarFallback>
                     </Avatar>
                     <div className="flex-grow min-w-0">

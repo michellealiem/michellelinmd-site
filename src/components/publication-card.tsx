@@ -56,7 +56,7 @@ export function PublicationCard({ publication }: PublicationCardProps) {
             rel="noopener noreferrer"
             className={cn(
               "block text-xs link-underline w-fit",
-              paper.url ? "text-blue-600" : "text-muted-foreground"
+              paper.url ? "text-blue-600 dark:text-blue-400" : "text-muted-foreground"
             )}
             onClick={(e) => {
               e.stopPropagation();

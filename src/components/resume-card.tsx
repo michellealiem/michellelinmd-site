@@ -11,6 +11,7 @@ import React from "react";
 
 interface ResumeCardProps {
   logoUrl: string;
+  logoDarkUrl?: string;
   altText: string;
   title: string;
   subtitle?: string;
@@ -21,6 +22,7 @@ interface ResumeCardProps {
 }
 export const ResumeCard = ({
   logoUrl,
+  logoDarkUrl,
   altText,
   title,
   subtitle,
@@ -50,8 +52,18 @@ export const ResumeCard = ({
             <AvatarImage
               src={logoUrl}
               alt={altText}
-              className="object-contain p-1"
+              className={cn(
+                "object-contain p-1",
+                logoDarkUrl && "dark:hidden"
+              )}
             />
+            {logoDarkUrl && (
+              <AvatarImage
+                src={logoDarkUrl}
+                alt={altText}
+                className="object-contain p-1 hidden dark:block"
+              />
+            )}
             <AvatarFallback className="text-xs">{altText[0]}</AvatarFallback>
           </Avatar>
         </div>

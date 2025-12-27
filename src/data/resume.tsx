@@ -71,6 +71,7 @@ export const DATA = {
       location: "San Francisco, CA",
       title: "Professor of Emergency Medicine",
       logoUrl: "/UCSF.svg",
+      logoDarkUrl: "/UCSF dark mode.png",
       start: "2001",
       end: "Present",
       description:
