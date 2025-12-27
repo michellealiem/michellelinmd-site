@@ -2,6 +2,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
@@ -40,17 +41,29 @@ export default async function BlogPage() {
         .map((post, id) => (
           <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
             <Link
-              className="flex flex-col space-y-1 mb-4 group"
+              className="flex gap-4 mb-8 group"
               href={`/blog/${post.slug}`}
             >
-              <div className="w-full flex flex-col">
-                <p className="tracking-tight group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
+              {/* Thumbnail */}
+              {post.metadata.image && (
+                <div className="flex-shrink-0 w-32 h-20 sm:w-48 sm:h-28 relative rounded-lg overflow-hidden">
+                  <Image
+                    src={post.metadata.image}
+                    alt={post.metadata.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
+              {/* Content */}
+              <div className="flex flex-col justify-center">
+                <h2 className="font-medium text-lg tracking-tight text-foreground group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
                   {post.metadata.title}
-                </p>
-                <p className="text-xs text-muted-foreground">
+                </h2>
+                <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
                   {post.metadata.summary}
                 </p>
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-xs text-muted-foreground mt-2">
                   {formatDate(post.metadata.publishedAt)}
                 </p>
               </div>
