@@ -100,7 +100,7 @@ function FloatCallout({ children, className }: { children: React.ReactNode; clas
       <div className="bg-white dark:bg-gray-900 rounded-[6px] p-5 h-full">
         {/* Decorative quote mark */}
         <span className="text-4xl leading-none text-blue-400/30 dark:text-blue-500/30 font-serif absolute top-3 left-4">
-          "
+          &ldquo;
         </span>
         <div className="pt-4 text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">
           {children}
@@ -196,7 +196,7 @@ function EditorialCallout({ children, className }: { children: React.ReactNode; 
       <div className="flex justify-center mb-4">
         <div className="flex items-center gap-2">
           <span className="w-8 h-px bg-gray-300 dark:bg-gray-600" />
-          <span className="text-3xl text-blue-500/60 dark:text-blue-400/60">"</span>
+          <span className="text-3xl text-blue-500/60 dark:text-blue-400/60">&ldquo;</span>
           <span className="w-8 h-px bg-gray-300 dark:bg-gray-600" />
         </div>
       </div>
@@ -210,7 +210,7 @@ function EditorialCallout({ children, className }: { children: React.ReactNode; 
       <div className="flex justify-center mt-4">
         <div className="flex items-center gap-2">
           <span className="w-8 h-px bg-gray-300 dark:bg-gray-600" />
-          <span className="text-3xl text-blue-500/60 dark:text-blue-400/60 rotate-180">"</span>
+          <span className="text-3xl text-blue-500/60 dark:text-blue-400/60 rotate-180">&rdquo;</span>
           <span className="w-8 h-px bg-gray-300 dark:bg-gray-600" />
         </div>
       </div>
