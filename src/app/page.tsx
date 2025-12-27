@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import { getBlogPosts } from "@/data/blog";
+import { formatDate } from "@/lib/utils";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
@@ -100,7 +101,7 @@ export default async function Page() {
                           {post.metadata.summary}
                         </p>
                         <p className="text-xs text-muted-foreground mt-1">
-                          {post.metadata.publishedAt}
+                          {formatDate(post.metadata.publishedAt)}
                         </p>
                       </div>
                     </div>

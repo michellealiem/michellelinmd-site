@@ -1,5 +1,6 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
+import { formatDate } from "@/lib/utils";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -50,7 +51,7 @@ export default async function BlogPage() {
                   {post.metadata.summary}
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  {post.metadata.publishedAt}
+                  {formatDate(post.metadata.publishedAt)}
                 </p>
               </div>
             </Link>

@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function ReadingProgress() {
-  const [isArticlePage, setIsArticlePage] = useState(false);
+  const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+  
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -13,11 +16,13 @@ export default function ReadingProgress() {
   });
 
   useEffect(() => {
-    // Only show on blog post pages
-    setIsArticlePage(window.location.pathname.startsWith("/blog/"));
+    setMounted(true);
   }, []);
 
-  if (!isArticlePage) return null;
+  // Only show on individual blog post pages (not /blog listing)
+  const isArticlePage = pathname?.startsWith("/blog/") && pathname !== "/blog";
+
+  if (!mounted || !isArticlePage) return null;
 
   return (
     <motion.div
