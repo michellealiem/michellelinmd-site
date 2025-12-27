@@ -3,9 +3,11 @@ import { DATA } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
+import { ArrowLeft } from "lucide-react";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -68,6 +70,15 @@ export default async function Blog({
 
   return (
     <section id="blog">
+      <BlurFade delay={0.02}>
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-blue-500 dark:hover:text-blue-400 transition-colors mb-6"
+        >
+          <ArrowLeft className="size-4" />
+          Back to home
+        </Link>
+      </BlurFade>
       <script
         type="application/ld+json"
         suppressHydrationWarning

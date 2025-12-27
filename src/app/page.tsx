@@ -6,12 +6,17 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
+import { getBlogPosts } from "@/data/blog";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
 
-export default function Page() {
+export default async function Page() {
+  const posts = await getBlogPosts();
+  const recentPosts = posts
+    .sort((a, b) => new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime())
+    .slice(0, 3);
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-14">
       <section id="hero" className="animated-gradient -mx-6 px-6 -mt-12 pt-12 sm:-mt-24 sm:pt-24 pb-8 rounded-b-3xl">
@@ -64,6 +69,48 @@ export default function Page() {
           </Markdown>
         </BlurFade>
       </section>
+      {recentPosts.length > 0 && (
+        <section id="blog">
+          <div className="flex min-h-0 flex-col gap-y-3">
+            <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
+              <div className="flex items-center justify-between">
+                <h2 className="text-xl font-bold">Latest from the Blog</h2>
+                <Link href="/blog" className="text-sm text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
+                  View all →
+                </Link>
+              </div>
+            </BlurFade>
+            <div className="grid grid-cols-1 gap-3">
+              {recentPosts.map((post, id) => (
+                <BlurFade key={post.slug} delay={BLUR_FADE_DELAY * 4.6 + id * 0.05}>
+                  <Link href={`/blog/${post.slug}`} className="block group">
+                    <div className="flex items-center gap-4 p-4 border rounded-lg hover:shadow-lg hover:scale-[1.01] transition-all duration-300">
+                      {post.metadata.image && (
+                        <img
+                          src={post.metadata.image}
+                          alt={post.metadata.title}
+                          className="w-20 h-14 object-cover rounded-md flex-shrink-0"
+                        />
+                      )}
+                      <div className="flex-grow min-w-0">
+                        <h3 className="font-semibold text-sm group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors truncate">
+                          {post.metadata.title}
+                        </h3>
+                        <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                          {post.metadata.summary}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {post.metadata.publishedAt}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </BlurFade>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
       {/* OPTION A: Work Experience as 2x2 Grid */}
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">

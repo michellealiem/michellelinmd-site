@@ -188,22 +188,22 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 
 /* Blog article links */
 .prose a {
-  color: #14B8A6;
+  color: #0077CC;
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: all 0.2s ease;
 }
 
 .prose a:hover {
-  color: #0D9488;
-  text-shadow: 0 0 8px rgba(20, 184, 166, 0.5);
+  color: #005599;
+  text-shadow: 0 0 8px rgba(0, 119, 204, 0.5);
 }
 
 .dark .prose a {
-  color: #2DD4BF;
+  color: #33AAFF;
 }
 
 .dark .prose a:hover {
-  color: #5EEAD4;
-  text-shadow: 0 0 8px rgba(45, 212, 191, 0.6);
+  color: #66CCFF;
+  text-shadow: 0 0 8px rgba(51, 170, 255, 0.6);
 }

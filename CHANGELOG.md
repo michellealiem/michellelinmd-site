@@ -1,5 +1,50 @@
 # Portfolio Website Changelog
 
+## Session: December 26, 2025 (Evening) — Blog Launch
+
+### First Blog Post Published 🎉
+- **"The Ceiling Is Gone"** — inaugural post about AI removing implementation barriers for non-coders
+- Featured image: AI-generated split illustration (blue constraint → amber freedom) with sticky notes transforming to birds
+- Links to ALiEM and Tricks of the Trade book
+
+### Color Palette Finalized
+- **Primary accent:** Blue (`#0077CC` light / `#33AAFF` dark) — better contrast than original teal
+- **Secondary accent:** Amber (`#F59E0B`) — used in featured images
+- Updated all UI elements from teal to blue (links, hover states, progress bar)
+- Hero sparkle icon already blue (`#0099FF`) — now consistent
+
+### Blog Features Added
+1. **Featured images** — displayed at top of posts using Next.js Image optimization
+2. **Reading progress bar** — blue bar at top that fills as you scroll (blog posts only)
+3. **Link hover glow** — blue glow effect on hover
+4. **Page animations** — title, date, image, and content fade in sequentially (BlurFade)
+5. **External links open in new tabs** — automatic via rehype plugin (no manual HTML needed)
+
+### Navigation Improvements
+- **Homepage → Blog:** "Latest from the Blog" section after About (shows 3 most recent posts with thumbnails)
+- **Blog → Home:** "← Back to home" link at top of blog listing and individual posts
+- "View all →" link to full blog listing
+- Hover effects with blue accent color throughout
+
+### Technical
+- Added `unist-util-visit` package for external link detection
+- Created `rehypeExternalLinks` plugin in `src/data/blog.ts`
+- Created `ReadingProgress` component with Framer Motion scroll tracking
+- Blog metadata type extended to include optional `image` field
+
+### Image Generation Workflow
+- Established prompting pattern for Nano Banana Pro
+- Always specify "Asian woman" for character representations
+- Color palette specified in prompts: blue (`#0077CC`) + amber (`#F59E0B`)
+- Request "no text, no words, no labels" for cleaner images
+
+### Future Tasks Noted
+- [ ] PAIA image generation skill (for automated blog featured images)
+- [ ] Sidebar commentary feature (à la danielmiessler.com)
+- [ ] Logo/monogram design
+
+---
+
 ## Session: December 26, 2025 (Afternoon)
 
 ### Deployment to Production 🎉
