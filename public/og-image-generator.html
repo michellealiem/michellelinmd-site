@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OG Image Generator - Michelle Lin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #1a1a1a;
+      padding: 40px;
+    }
+    
+    .instructions {
+      color: #888;
+      margin-bottom: 20px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+    }
+    
+    .og-container {
+      width: 1200px;
+      height: 630px;
+      background: linear-gradient(
+        -45deg,
+        hsl(210, 11%, 4%),
+        hsl(200, 40%, 10%),
+        hsl(190, 40%, 8%),
+        hsl(210, 11%, 4%)
+      );
+      background-size: 400% 400%;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    
+    .name-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .name {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+    
+    .sparkle {
+      width: 48px;
+      height: 48px;
+      fill: #0099FF;
+    }
+    
+    .tagline {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 32px;
+      color: #e5e5e5;
+      margin-top: 8px;
+    }
+    
+    .tagline-italic {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 28px;
+      color: #888888;
+      font-style: italic;
+      margin-top: 4px;
+    }
+    
+    .avatar-container {
+      position: relative;
+    }
+    
+    .avatar-ring {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0099FF 0%, #00CCFF 50%, #0077CC 100%);
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #1a1a1a;
+    }
+    
+    .url {
+      position: absolute;
+      bottom: 40px;
+      left: 100px;
+      font-family: system-ui, sans-serif;
+      font-size: 24px;
+      color: #666666;
+    }
+  </style>
+</head>
+<body>
+  <div class="instructions">
+    <p><strong>Instructions:</strong> Take a screenshot of the box below at exactly 1200×630 pixels.</p>
+    <p>On Mac: Cmd+Shift+4, then drag to select the dark box precisely.</p>
+    <p>Or use a browser extension like "GoFullPage" to capture at exact dimensions.</p>
+  </div>
+  
+  <div class="og-container">
+    <div class="content">
+      <div class="name-row">
+        <span class="name">Dr. Michelle Lin</span>
+        <svg class="sparkle" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
+        </svg>
+      </div>
+      <div class="tagline">Emergency physician by night.</div>
+      <div class="tagline">Educator by day.</div>
+      <div class="tagline-italic">AI tinkerer always.</div>
+    </div>
+    
+    <div class="avatar-container">
+      <div class="avatar-ring">
+        <img src="me.png" alt="Michelle Lin" class="avatar">
+      </div>
+    </div>
+    
+    <div class="url">michellelinmd.com</div>
+  </div>
+</body>
+</html>
