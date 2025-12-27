@@ -6,7 +6,10 @@ import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans, Bricolage_Grotesque as FontDisplay, Playfair_Display as FontSerif, Lora as FontLora, Crimson_Text as FontCrimson } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-VGCEJS1D5C";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -91,6 +94,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6 overflow-x-clip",
