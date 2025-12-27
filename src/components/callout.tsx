@@ -47,7 +47,7 @@ function useTypewriter(text: string, speed: number = 30, startDelay: number = 30
 
 // Intersection Observer hook for scroll-triggered animations
 function useInView(threshold: number = 0.3) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {

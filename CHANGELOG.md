@@ -1,5 +1,45 @@
 # Portfolio Website Changelog
 
+## Session: December 26, 2025 (Night) — Margin Note Blockquotes
+
+### Margin Note Styling for Blockquotes 🎉
+- **Blockquotes now appear as margin notes** on desktop (1024px+)
+  - Positioned in right margin, 200px wide
+  - Right-aligned text with right blue border
+  - Falls back to inline style on mobile (left border, light background)
+- **Lora font** — modern serif for blockquotes, distinct from Inter body text
+- **Muted blue color** — `#6b8cae` light / `#8badc9` dark — ties to brand
+- **Fade + slide animation** — margin notes fade in and slide from right on page load
+
+### Blog Post Date Format
+- Changed from ISO format (`2025-12-26`) to human-readable (`December 26, 2025 (1d ago)`)
+- Updated on homepage and blog listing pages
+
+### Reading Progress Bar Fix
+- Fixed client-side navigation detection using Next.js `usePathname()` hook
+- Progress bar now correctly shows only on individual blog posts
+
+### Fonts Added
+- **Playfair Display** — serif option (not used)
+- **Lora** — modern serif, used for blockquotes ✓
+- **Crimson Text** — literary serif (tested, not used)
+
+### Technical
+- Created `TypewriterMarginNotes` component (typewriter effect not working, kept for future)
+- Created `Callout` component with 3 variants: float, margin, editorial (available for future use)
+- Fixed JSX quote escaping in `callout.tsx` for Netlify build
+- Added `overflow-x-clip` to body for margin note overflow
+
+### Files Modified
+- `src/app/globals.css` — margin note blockquote styles
+- `src/app/layout.tsx` — added Lora, Crimson, Playfair fonts
+- `src/app/blog/[slug]/page.tsx` — integrated TypewriterMarginNotes
+- `src/components/typewriter-margin-notes.tsx` — new component
+- `src/components/callout.tsx` — new component (3 variants)
+- `tailwind.config.ts` — added font-serif class
+
+---
+
 ## Session: December 26, 2025 (Evening) — Blog Launch
 
 ### First Blog Post Published 🎉
