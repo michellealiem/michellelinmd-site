@@ -7,6 +7,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import BlurFade from "@/components/magicui/blur-fade";
+import { TypewriterMarginNotes } from "@/components/typewriter-margin-notes";
 import { ArrowLeft } from "lucide-react";
 
 export async function generateStaticParams() {
@@ -130,10 +131,7 @@ export default async function Blog({
         </BlurFade>
       )}
       <BlurFade delay={0.16}>
-        <article
-          className="prose dark:prose-invert"
-          dangerouslySetInnerHTML={{ __html: post.source }}
-        ></article>
+        <TypewriterMarginNotes htmlContent={post.source} />
       </BlurFade>
     </section>
   );

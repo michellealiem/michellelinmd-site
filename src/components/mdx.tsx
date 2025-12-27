@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Callout } from "./callout";
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   let headers = data.headers.map((header, index) => (
@@ -88,4 +89,5 @@ export const globalComponents = {
   Image: RoundedImage,
   a: CustomLink,
   Table,
+  Callout,
 };

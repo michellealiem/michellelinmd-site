@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter as FontSans, Bricolage_Grotesque as FontDisplay } from "next/font/google";
+import { Inter as FontSans, Bricolage_Grotesque as FontDisplay, Playfair_Display as FontSerif, Lora as FontLora, Crimson_Text as FontCrimson } from "next/font/google";
 import "./globals.css";
 
 const fontSans = FontSans({
@@ -17,6 +17,26 @@ const fontDisplay = FontDisplay({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const fontSerif = FontSerif({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["400", "500", "600", "700"],
+});
+
+const fontLora = FontLora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const fontCrimson = FontCrimson({
+  subsets: ["latin"],
+  variable: "--font-crimson",
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -64,9 +84,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
+          "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6 overflow-x-clip",
           fontSans.variable,
-          fontDisplay.variable
+          fontDisplay.variable,
+          fontSerif.variable,
+          fontLora.variable,
+          fontCrimson.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">

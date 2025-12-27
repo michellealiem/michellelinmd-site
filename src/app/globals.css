@@ -207,3 +207,97 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   color: #66CCFF;
   text-shadow: 0 0 8px rgba(51, 170, 255, 0.6);
 }
+
+/* ============================================================================
+   BLOCKQUOTE / MARGIN NOTE STYLING
+   Currently active: Style 3 (Margin Notes)
+   ============================================================================ */
+
+/* Margin note style - appears in right margin on desktop */
+.prose {
+  @apply relative overflow-visible;
+}
+
+.prose blockquote {
+  /* Mobile: inline with left border */
+  @apply relative w-full my-6;
+  @apply text-sm leading-relaxed;
+  @apply text-gray-600 dark:text-gray-400;
+  @apply border-l-2 border-blue-400 dark:border-blue-500 pl-4;
+  @apply py-3 pr-4 rounded-r-lg;
+  background-color: rgba(59, 130, 246, 0.05);
+  font-style: normal;
+}
+
+.dark .prose blockquote {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Desktop: position in right margin */
+@media (min-width: 1024px) {
+  .prose blockquote {
+    @apply absolute;
+    width: 200px;
+    right: -240px;
+    @apply border-l-0 border-r-2 border-blue-400 dark:border-blue-500;
+    @apply pl-0 pr-4 text-right;
+    @apply py-0 rounded-none;
+    background-color: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* Fade in + slide animation */
+    animation: marginNoteReveal 0.8s ease-out forwards;
+    opacity: 0;
+  }
+}
+
+@keyframes marginNoteReveal {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.prose blockquote::before {
+  content: none;
+}
+
+.prose blockquote p {
+  margin: 0;
+  font-style: italic;
+  font-family: var(--font-lora), Georgia, serif;
+  color: #6b8cae;
+}
+
+.dark .prose blockquote p {
+  color: #8badc9;
+}
+
+/* Callout box classes for custom components */
+.callout {
+  @apply my-8 p-6 rounded-lg border-l-4;
+}
+
+.callout-insight {
+  @apply bg-amber-50 dark:bg-amber-950/30 border-amber-500;
+}
+
+.callout-note {
+  @apply bg-blue-50 dark:bg-blue-950/30 border-blue-500;
+}
+
+.callout-warning {
+  @apply bg-red-50 dark:bg-red-950/30 border-red-500;
+}
+
+/* Large pull-quote for emphasis */
+.pull-quote {
+  @apply my-12 px-8 py-6;
+  @apply text-xl md:text-2xl font-medium text-center;
+  @apply text-gray-800 dark:text-gray-200;
+  @apply border-t-2 border-b-2 border-gray-200 dark:border-gray-700;
+}
